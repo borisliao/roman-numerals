@@ -8,6 +8,7 @@
 extern int yylex();
 extern int yyparse();
 extern FILE* yyin;
+int hun = 0;
 
 void yyerror(const char* s);
 %}
@@ -28,26 +29,18 @@ void yyerror(const char* s);
 %token<i> T_NINETY
 %token<i> T_HUNDRED
 
-%type<i> R
-%type<i> RNum
+%type<i> Num
+%type<i> Hundred
 %%
 
-start: R {printf("Result: %d\n", $1);}
+start: Num {printf("Number of Hundreds: %d\n Result: %d\n", hun, $1); hun = 0;}
 ;
 
-R: RNum					{$$ = $1;}
-	| RNum R				{$$ = $1 + $2;}
+Num: Hundred Hundred Hundred {$$ = $1 + $2 + $3;}
 ;
 
-RNum: T_ONE 			{$$ = $1;}
-		| T_FOUR 			{$$ = $1;}
-		|	T_FIVE 			{$$ = $1;}
-		|	T_NINE  		{$$ = $1;}
-		|	T_TEN 			{$$ = $1;}
-		|	T_FOURTY 		{$$ = $1;}
-		|	T_FIFTY 		{$$ = $1;}
-		|	T_NINETY 		{$$ = $1;}
-		|	T_HUNDRED 	{$$ = $1;}
+Hundred: T_HUNDRED {$$ = $1;hun++;}
+		| 
 ;
 
 %%
