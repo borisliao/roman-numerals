@@ -11,6 +11,8 @@
 
 %%
 "I"                 {yylval.i = 1; return T_ONE;}
+"II"                {yylval.i = 2; return T_TWO;}
+"III"               {yylval.i = 3; return T_THREE;}
 "IV"				        {yylval.i = 4; return T_FOUR;}
 "V"                 {yylval.i = 5; return T_FIVE;}
 "IX"				        {yylval.i = 9; return T_NINE;}
@@ -21,8 +23,8 @@
 "C"                 {yylval.i = 100; return T_HUNDRED;}
 "+"                 {return T_PLUS;}
 "-"                 {return T_MINUS;}
-"*"                 {return T_PLUS;}
+"*"                 {return T_MULTIPLY;}
 "/"                 {return T_DIVIDE;}
 "."                 {return T_DOT;}
-\n                  {return 0;}
+\n                  {return T_NEWLINE;}
 %%
