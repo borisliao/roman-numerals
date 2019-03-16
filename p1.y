@@ -19,9 +19,13 @@ void yyerror(const char* s);
 
 %token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_DOT T_NEWLINE
 %token<i> T_ONE
+%token<i> T_FOUR
 %token<i> T_FIVE
+%token<i> T_NINE
 %token<i> T_TEN
+%token<i> T_FOURTY
 %token<i> T_FIFTY
+%token<i> T_NINETY
 %token<i> T_HUNDRED
 %%
 

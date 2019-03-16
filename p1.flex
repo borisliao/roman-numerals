@@ -11,9 +11,13 @@
 
 %%
 "I"                 {yylval.i = 1; return T_ONE;}
+"IV"				        {yylval.i = 4; return T_FOUR;}
 "V"                 {yylval.i = 5; return T_FIVE;}
+"IX"				        {yylval.i = 9; return T_NINE;}
 "X"                 {yylval.i = 10; return T_TEN;}
+"XL"				        {yylval.i = 40; return T_FOURTY;}
 "L"                 {yylval.i = 50; return T_FIFTY;}
+"XC"				        {yylval.i = 90; return T_NINETY;}
 "C"                 {yylval.i = 100; return T_HUNDRED;}
 "+"                 {return T_PLUS;}
 "-"                 {return T_MINUS;}
