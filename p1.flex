@@ -24,5 +24,5 @@
 "*"                 {return T_PLUS;}
 "/"                 {return T_DIVIDE;}
 "."                 {return T_DOT;}
-\n                  {return T_NEWLINE;}
+\n                  {return 0;}
 %%

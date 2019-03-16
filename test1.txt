@@ -1,5 +1,3 @@
-XXIV.IV
-XX + IV
-LCI / .I
-LVI * III
-IV.XI - LVI
+XXIV
+XX
+LCI 
