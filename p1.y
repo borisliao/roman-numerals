@@ -27,12 +27,28 @@ void yyerror(const char* s);
 %token<i> T_FIFTY
 %token<i> T_NINETY
 %token<i> T_HUNDRED
+
+%type<i> R
+%type<i> RNum
 %%
 
-YOURGRAMMAR: SOMETHINGELSE
-	| //Epsilon
+start: R {printf("Result: %d\n", $1);}
+;
 
-SOMETHINGELSE: T_PLUS { printf("This part is the attribute grammar of your CFG"); }
+R: RNum					{$$ = $1;}
+	| RNum R				{$$ = $1 + $2;}
+;
+
+RNum: T_ONE 			{$$ = $$ + $1;}
+		| T_FOUR 			{$$ = $$ + $1;}
+		|	T_FIVE 			{$$ = $$ + $1;}
+		|	T_NINE  		{$$ = $$ + $1;}
+		|	T_TEN 			{$$ = $$ + $1;}
+		|	T_FOURTY 		{$$ = $$ + $1;}
+		|	T_FIFTY 		{$$ = $$ + $1;}
+		|	T_NINETY 		{$$ = $$ + $1;}
+		|	T_HUNDRED 	{$$ = $$ + $1;}
+;
 
 %%
 
