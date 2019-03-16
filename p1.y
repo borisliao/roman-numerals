@@ -17,7 +17,7 @@ void yyerror(const char* s);
 	float f;
 }
 
-%token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_DOT
+%token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_DOT T_NEWLINE
 %token<i> T_ONE
 %token<i> T_FIVE
 %token<i> T_TEN
@@ -28,7 +28,7 @@ void yyerror(const char* s);
 YOURGRAMMAR: SOMETHINGELSE
 	| //Epsilon
 
-SOMETHINGELSE: T_TEST { printf("This part is the attribute grammar of your CFG"); }
+SOMETHINGELSE: T_PLUS { printf("This part is the attribute grammar of your CFG"); }
 
 %%
 
