@@ -9,7 +9,7 @@ lex.yy.c: p1.flex p1.tab.h
 	flex p1.flex
 
 p1: lex.yy.c p1.tab.c p1.tab.h
-	gcc -o p1 p1.tab.c lex.yy.c
+	gcc -o p1 p1.tab.c lex.yy.c -lm
 
 test: all
 	./p1 < test.txt

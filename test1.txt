@@ -3,6 +3,3 @@ XX + IV
 CLI / .I
 LVI * III
 IV.XI - LVI
-
-
-{if (fmod($1,1) > 0) printf("%f\n", $1); else printf("%d\n", (int)$1);}
