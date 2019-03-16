@@ -12,9 +12,17 @@ extern FILE* yyin;
 void yyerror(const char* s);
 %}
 
+%union {
+	int i;
+	float f;
+}
 
-%token T_C T_Y T_R T_E T_H T_TEST // You need to define your tokens from flex here.
-
+%token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_DOT
+%token<i> T_ONE
+%token<i> T_FIVE
+%token<i> T_TEN
+%token<i> T_FIFTY
+%token<i> T_HUNDRED
 %%
 
 YOURGRAMMAR: SOMETHINGELSE
