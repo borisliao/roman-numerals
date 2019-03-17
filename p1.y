@@ -44,10 +44,8 @@ begin: begin Start
      |
 	 ;
 
-Start: Expr T_NEWLINE     {if (fmod($1,1) > 0) printf("%f\n", $1); else printf("%d\n", (int)$1);}
+Start: Expr T_NEWLINE     {printf("%f\n", $1);} 
 ;
-
-
 
 Expr: Factor 						{$$ = $1;}
 	| Factor T_PLUS Factor          {$$ = $1 + $3;}
@@ -56,15 +54,12 @@ Expr: Factor 						{$$ = $1;}
 	| Factor T_DIVIDE Factor        {$$ = $1 / $3;}
 	;
 
-
-
-
-
 Factor: Roman_Num 					{$$ = $1;}
 	  | Roman_Num T_DOT Roman_Num   {
-																		int places = floor(log10 (abs ($3))) + 1;
-																		int power = (int) pow(10.0, (double) places);
-																		$$ = $1 + ((double) $3/power);}
+                                    int places = floor(log10 (abs ($3))) + 1;
+									int power = (int) pow(10.0, (double) places);
+									$$ = $1 + ((double) $3/power);
+                                    }
 	  | 		  					{$$ = 0;}
 ;
 
