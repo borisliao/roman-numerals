@@ -3,5 +3,3 @@ XX + IV
 CLI / .I
 LVI * III
 IV.XI - LVI
-
- 

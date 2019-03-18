@@ -44,7 +44,7 @@ begin: begin Start
      |
 	 ;
 
-Start: Expr T_NEWLINE     {printf("%f\n", $1);} 
+Start: Expr T_NEWLINE     {if (fmod($1,1) != 0) printf("%f\n", $1); else printf("%d\n", (int)$1);}
 ;
 
 Expr: Factor 						{$$ = $1;}
